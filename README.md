@@ -1,0 +1,1 @@
+Repositório para Curso de Automação de Testes com Ruby, Cucumber, Capybara QA Ninja de Fernando Papito.
