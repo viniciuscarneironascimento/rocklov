@@ -1,1 +1,1 @@
-Repositório para Curso de Automação de Testes com Ruby, Cucumber, Capybara QA Ninja de Fernando Papito. Incluído no repositório GitHub.
+Repositório para Curso de Automação de Testes com Ruby, Cucumber, Capybara QA Ninja de Fernando Papito. Incluído no repositório GitHub. Ajuste no readme para monitorar o push no GitHub Desktop.
