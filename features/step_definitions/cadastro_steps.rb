@@ -6,29 +6,47 @@ Dado('que acesso a página de cadastro') do
     visit "http://rocklov-web:3000/signup"
 end
   
-Quando('submeto o meu cadastro completo') do
-    # 20/07/2021 1º- Depois de ter criado todo o código anteriormente, hoje adicionarei um comando para realizar operação no banco de dados MongoDB conforme abaixo. Mas para isto funcionar é necessário importar a biblioteca gem do mongo no topo da página.
-    # client = Mongo::Client.new('mongodb://rocklov-db:27017/rocklov')
+# Quando('submeto o meu cadastro completo') do
+#     # 20/07/2021 1º- Depois de ter criado todo o código anteriormente, hoje adicionarei um comando para realizar operação no banco de dados MongoDB conforme abaixo. Mas para isto funcionar é necessário importar a biblioteca gem do mongo no topo da página.
+#     # client = Mongo::Client.new('mongodb://rocklov-db:27017/rocklov')
 
- # 20/07/2021 3º- Ainda seguindo a documentação do mongo, para acessar uma collection (mesmo que tabela do BD), será necessário adicionar o comando abaixo epassar o nome da tabela do mongo, ou seja "users":
-    # collection = client[:users]
-    # users = client[:users]
-    # 20/07/2021 4º- Agora usaremos um métodos para DELETAR dados desta tabela "users":
-    # Desta forma não precisaremos usar "Faker::Internet.free_email", porém o dado a ser deletado deve ser EXATAMENTE igual ao que usaremos no comando "find("#email").set "contato.vinicius@gmail.com":
-    # users.delete_many({email: "contato.vinicius@gmail.com"})
-    # 20/07/2021 5º- Por fim, usaremos todos estes recursos em um outro arquivo Ruby, específico para tratar acesso ao banco de dados. Criaremos uma pasta "libs" dentro da pasta "suporte" onde copiaremos estes códigos em uma classe que será chamada aqui embaixo encapsulada. Instancio a classe MongoDb: 
-    MongoDB.new.remove_user("contato.vinicius@gmail.com")
-    # A execução da classe MongoDB acaba gerando LOG na execução do cucumber pelo terminal do prompt. Então faremos o seguinte: na pasta principal criarei uma nova pasta chamada "logs"
+#  # 20/07/2021 3º- Ainda seguindo a documentação do mongo, para acessar uma collection (mesmo que tabela do BD), será necessário adicionar o comando abaixo epassar o nome da tabela do mongo, ou seja "users":
+#     # collection = client[:users]
+#     # users = client[:users]
+#     # 20/07/2021 4º- Agora usaremos um métodos para DELETAR dados desta tabela "users":
+#     # Desta forma não precisaremos usar "Faker::Internet.free_email", porém o dado a ser deletado deve ser EXATAMENTE igual ao que usaremos no comando "find("#email").set "contato.vinicius@gmail.com":
+#     # users.delete_many({email: "contato.vinicius@gmail.com"})
+#     # 20/07/2021 5º- Por fim, usaremos todos estes recursos em um outro arquivo Ruby, específico para tratar acesso ao banco de dados. Criaremos uma pasta "libs" dentro da pasta "suporte" onde copiaremos estes códigos em uma classe que será chamada aqui embaixo encapsulada. Instancio a classe MongoDb: 
+#     MongoDB.new.remove_user("contato.vinicius@gmail.com")
+#     # A execução da classe MongoDB acaba gerando LOG na execução do cucumber pelo terminal do prompt. Então faremos o seguinte: na pasta principal criarei uma nova pasta chamada "logs"
 
 
-    find("#fullName").set "Vinicius"
-    # Vou substituir a linha abaixo por dados dinâmicos usando FAKER. Desta forma não haverá validação de e-mail existente e perdermos nossa massa de teste ou até ter que reconstruir o BD no Docker. Mas esta solução é "macgyver" e deverá ser substituída no futuro por algo mais moderno.
-    find("#email").set "contato.vinicius@gmail.com"
-    # find("#email").set Faker::Internet.free_email
-    find("#password").set "12345"
+#     find("#fullName").set "Vinicius"
+#     # Vou substituir a linha abaixo por dados dinâmicos usando FAKER. Desta forma não haverá validação de e-mail existente e perdermos nossa massa de teste ou até ter que reconstruir o BD no Docker. Mas esta solução é "macgyver" e deverá ser substituída no futuro por algo mais moderno.
+#     find("#email").set "contato.vinicius@gmail.com"
+#     # find("#email").set Faker::Internet.free_email
+#     find("#password").set "12345"
+#     click_button "Cadastrar"
+# end
+
+
+# 04/08/2021 Fatoração do step "Quando" utilizando Especificação por Exemplo
+Quando('submeto o seguinte formulário de cadastro:') do |table|
+# Transformar meu formulário em objeto Ruby
+# Criar variável que recebe "tabela" passada por argumento e criar um "HASHES" do Ruby. Poderia usar também user = table.hashes[0]
+    user = table.hashes.first
+
+# Substitui os valor antes passados por string por hashes:     user[:chave]
+    MongoDB.new.remove_user(user[:email])
+    find("#fullName").set user[:nome]
+    find("#email").set user[:email]
+    find("#password").set user[:senha]
     click_button "Cadastrar"
 end
-  
+
+
+
+
 Então('sou redirecionado para o Dashboard') do
     #Posso usar a validação nativa abaixo, sem instalar o Rspec
     # expect(page).to have_current_path('http://rocklov-web:3000/dashboard')
@@ -109,7 +127,7 @@ Então('vejo a mensagem de alerta: {string}') do |expected_alert|
   end
 
 
-
+# Aula dia 04/08/2021: alterando o arquivo cadastro.feature Especificação por Exemplo
 
 
 
