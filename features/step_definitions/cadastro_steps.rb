@@ -127,14 +127,17 @@ end
 
 
 # Estudo em 26/07/2021. Com a inclusão do step abaixo que recebe o arqgumento com as mensagens de alerta, os códigos das linhas 56, 88 e 100 não serão mais utilizados. O argumento passado por parâmetro vem de onde?????? Vem da documentação .FEATURE, ou seja, onde tiver escrito o step "Então vejo a mensagem de alerta: "mensagem"" o cucumber vai chamar este método. Atenção: este método só é válido pois as mensagens de validação são wxibidas em um mesmo componente da página HTML, só muda o texto apresentado.
-Então('vejo a mensagem de alerta: {string}') do |expected_alert|
+# Então('vejo a mensagem de alerta: {string}') do |expected_alert|
+#     alert = find(".alert-dark")
+#     expect(alert.text).to eql expected_alert
+#   end
+
+
+# O cucumber modificou a linha de "Então('vejo a mensagem de alerta: {string}') do |expected_alert|" para a linha abaixo
+Então('vejo a mensagem de alerta: "{string}"') do |expected_alert|
     alert = find(".alert-dark")
     expect(alert.text).to eql expected_alert
-  end
-
-
-# Aula dia 04/08/2021: alterando o arquivo cadastro.feature Especificação por Exemplo
-
+end
 
 
 

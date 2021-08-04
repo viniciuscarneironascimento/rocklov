@@ -14,37 +14,20 @@ Funcionalidade: Cadastro
             | Vinicius | contato.vinicius@gmail.com | 12345 |
         Então sou redirecionado para o Dashboard
 
-    @tentativa_cadastro
-    Cenario: Submeter cadastro sem o nome
-        Dado que acesso a página de cadastro
-        Quando submeto o seguinte formulário de cadastro:
-            | nome | email                      | senha |
-            |      | contato.vinicius@gmail.com | 12345 |
-        Então vejo a mensagem de alerta: "Oops. Informe seu nome completo!"
-
-    @tentativa_cadastro
-    Cenario: Submeter cadastro sem o email
+    @esquema_cenario_tentativa_cadastro
+    Esquema do Cenario: Tentativa de cadastro
 
         Dado que acesso a página de cadastro
         Quando submeto o seguinte formulário de cadastro:
-            | nome     | email | senha |
-            | Vinicius |       | 12345 |
-        Então vejo a mensagem de alerta: "Oops. Informe um email válido!"
+            | nome         | email         | senha         |
+            | <nome_input> | <email_input> | <senha_input> |
+        Então vejo a mensagem de alerta: "<mensagem_output>"
 
-    @tentativa_cadastro
-    Cenario: Submeter cadastro com email incorreto
+        Exemplos:
+            | nome_input | email_input                | senha_input | mensagem_output                    |
+            |            | contato.vinicius@gmail.com | 12345       | "Oops. Informe seu nome completo!" |
+            | Vinicius   |                            | 12345       | "Oops. Informe um email válido!"   |
+            | Vinicius   | contato*gmail.com          | 12345       | "Oops. Informe um email válido!"   |
+            | Vinicius   | contato#gmail.com          | 12345       | "Oops. Informe um email válido!"   |
+            | Vinicius   | contato.vinicius@gmail.com |             | "Oops. Informe sua senha secreta!" |
 
-        Dado que acesso a página de cadastro
-        Quando submeto o seguinte formulário de cadastro:
-            | nome     | email                      | senha |
-            | Vinicius | contato.vinicius&gmail.com | 12345 |
-        Então vejo a mensagem de alerta: "Oops. Informe um email válido!"
-
-    @tentativa_cadastro
-    Cenario: Submeter cadastro sem a senha
-
-        Dado que acesso a página de cadastro
-        Quando submeto o seguinte formulário de cadastro:
-            | nome     | email                      | senha |
-            | Vinicius | contato.vinicius@gmail.com |       |
-        Então vejo a mensagem de alerta: "Oops. Informe sua senha secreta!"
