@@ -44,9 +44,6 @@ Quando('submeto o seguinte formulário de cadastro:') do |table|
     click_button "Cadastrar"
 end
 
-
-
-
 Então('sou redirecionado para o Dashboard') do
     #Posso usar a validação nativa abaixo, sem instalar o Rspec
     # expect(page).to have_current_path('http://rocklov-web:3000/dashboard')
@@ -62,63 +59,72 @@ Então('sou redirecionado para o Dashboard') do
 end
 
 
-# @sem_nome
-# Dando sequência no cógido, adiciono abaixo os novos STEPS do segundo Cenário
-# Não inicio com "DADO QUE" pois o cucumber já identificou que a linha 1 deste código já atende este step.
-Quando('submeto o meu cadastro sem o nome') do
-    find("#email").set Faker::Internet.free_email
-    find("#password").set "12345"
-    click_button "Cadastrar"
-end
+
+
+
+# # 04/08/2021 Excluir todos os steps "Quando" de tentativas de cadastro pois refatorei o arquivo feature que recebe a massa de teste diretamente na especificação por exemplo. O Cucumber vai utilizar o mesmo método "Quando('submeto o seguinte formulário de cadastro:') do |table|" da linha 34
+# # @sem_nome
+# # Dando sequência no cógido, adiciono abaixo os novos STEPS do segundo Cenário
+# # Não inicio com "DADO QUE" pois o cucumber já identificou que a linha 1 deste código já atende este step.
+# Quando('submeto o meu cadastro sem o nome') do
+#     find("#email").set Faker::Internet.free_email
+#     find("#password").set "12345"
+#     click_button "Cadastrar"
+# end
   
-# Então('vejo a mensagem de alerta: Oops. Informe seu nome completo!') do
-#     # Primeira opção de validação: verifico se a tela exibe o texto "Oops. Informe seu nome completo!". Esta é a validação mais simples e vai passar.
-#     # expect(text).to have_text "Oops. Informe seu nome completo!"
+# # Então('vejo a mensagem de alerta: Oops. Informe seu nome completo!') do
+# #     # Primeira opção de validação: verifico se a tela exibe o texto "Oops. Informe seu nome completo!". Esta é a validação mais simples e vai passar.
+# #     # expect(text).to have_text "Oops. Informe seu nome completo!"
 
-#     # Segunda opção de validação: verifico se a tela apresenta um elemento CSS contendo ".alert-dark". O sistema encontra, porém não valida a mensagem "Oops. Informe seu nome completo!" que é o objetivo deste step.
-#     # expect(page).to have_css ".alert-dark"
+# #     # Segunda opção de validação: verifico se a tela apresenta um elemento CSS contendo ".alert-dark". O sistema encontra, porém não valida a mensagem "Oops. Informe seu nome completo!" que é o objetivo deste step.
+# #     # expect(page).to have_css ".alert-dark"
 
-#     # Terceira opção de validação: procuro um elemento CSS específico, ou seja, que possui style do tipo ".alert-dark", em seguida verifico se o texto apresentado neste style possui o texto deste step "Oops. Informe seu nome completo!".
-#     alert = find(".alert-dark")
-#     expect(alert.text).to eql "Oops. Informe seu nome completo!"
+# #     # Terceira opção de validação: procuro um elemento CSS específico, ou seja, que possui style do tipo ".alert-dark", em seguida verifico se o texto apresentado neste style possui o texto deste step "Oops. Informe seu nome completo!".
+# #     alert = find(".alert-dark")
+# #     expect(alert.text).to eql "Oops. Informe seu nome completo!"
+# # end
+
+
+# # @sem_email
+# #Vamos automatizar agora os três últimos Cenário de uma só vez.....
+# # Não inicio com "DADO QUE" pois o cucumber já identificou que a linha 1 deste código já atende este step.
+# Quando('submeto o meu cadastro sem o email') do
+#     find("#fullName").set "Vinicius"
+#     find("#password").set "12345"
+#     click_button "Cadastrar"
 # end
 
-
-# @sem_email
-#Vamos automatizar agora os três últimos Cenário de uma só vez.....
-# Não inicio com "DADO QUE" pois o cucumber já identificou que a linha 1 deste código já atende este step.
-Quando('submeto o meu cadastro sem o email') do
-    find("#fullName").set "Vinicius"
-    find("#password").set "12345"
-    click_button "Cadastrar"
-end
-
-# @email_inv
-# Ao executar "cucumber -t @email_inv" o cucumber identifica que tanto o "DADO QUE" como "ENTÃO" possuem o mesmo conteúdo, desta forma o CMDER apresentou apenas o "QUANDO".
-Quando('submeto o meu cadastro com email incorreto') do
-    find("#fullName").set "Vinicius"
-    find("#email").set "Faker::Internet.free_email"
-    find("#password").set "12345"
-    click_button "Cadastrar"
-end
-
-# antes de implementar isto vamos realizar um teste manual para mapear o elemento na tela
-# Então('vejo a mensagem de alerta: Oops. Informe um email válido!') do
-#     alert = find(".alert-dark")
-#     expect(alert.text).to eql "Oops. Informe um email válido!"
+# # @email_inv
+# # Ao executar "cucumber -t @email_inv" o cucumber identifica que tanto o "DADO QUE" como "ENTÃO" possuem o mesmo conteúdo, desta forma o CMDER apresentou apenas o "QUANDO".
+# Quando('submeto o meu cadastro com email incorreto') do
+#     find("#fullName").set "Vinicius"
+#     find("#email").set "Faker::Internet.free_email"
+#     find("#password").set "12345"
+#     click_button "Cadastrar"
 # end
 
-# @sem_senha
-Quando('submeto o meu cadastro sem a senha') do
-    find("#fullName").set "Vinicius"
-    find("#email").set Faker::Internet.free_email
-    click_button "Cadastrar"
-end
+# # antes de implementar isto vamos realizar um teste manual para mapear o elemento na tela
+# # Então('vejo a mensagem de alerta: Oops. Informe um email válido!') do
+# #     alert = find(".alert-dark")
+# #     expect(alert.text).to eql "Oops. Informe um email válido!"
+# # end
+
+# # @sem_senha
+# Quando('submeto o meu cadastro sem a senha') do
+#     find("#fullName").set "Vinicius"
+#     find("#email").set Faker::Internet.free_email
+#     click_button "Cadastrar"
+# end
   
-# Então('vejo a mensagem de alerta: Oops. Informe sua senha secreta!') do
-#     alert = find(".alert-dark")
-#     expect(alert.text).to eql "Oops. Informe sua senha secreta!"
-# end
+# # Então('vejo a mensagem de alerta: Oops. Informe sua senha secreta!') do
+# #     alert = find(".alert-dark")
+# #     expect(alert.text).to eql "Oops. Informe sua senha secreta!"
+# # end
+
+
+
+
+
 
 # Estudo em 26/07/2021. Com a inclusão do step abaixo que recebe o arqgumento com as mensagens de alerta, os códigos das linhas 56, 88 e 100 não serão mais utilizados. O argumento passado por parâmetro vem de onde?????? Vem da documentação .FEATURE, ou seja, onde tiver escrito o step "Então vejo a mensagem de alerta: "mensagem"" o cucumber vai chamar este método. Atenção: este método só é válido pois as mensagens de validação são wxibidas em um mesmo componente da página HTML, só muda o texto apresentado.
 Então('vejo a mensagem de alerta: {string}') do |expected_alert|
