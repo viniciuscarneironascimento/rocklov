@@ -149,21 +149,3 @@ end
 #     alert = find(".alert-dark")
 #     expect(alert.text).to eql expected_alert
 # end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
