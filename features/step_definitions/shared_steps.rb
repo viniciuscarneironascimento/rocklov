@@ -18,11 +18,26 @@ Então('vejo a mensagem de alerta: "{string}"') do |expected_alert|
     # alert = find(".alert-dark")
     # expect(alert.text).to eql expected_alert
 
-    
     # Outra opção quando tem vários elementos diferente CSS na tela
-    if page.has_css?(".alert-dark") 
-        expect(find(".alert-dark").text).to eql expected_alert
-    else 
+    # if page.has_css?(".alert-error") 
+    #     expect(find(".alert-error").text).to eql expected_alert
+    # else 
+    #     expect(find(".alert-dark").text).to eql expected_alert
+    # end 
+
+    # Outra opção mais assertiva quando tem vários elementos diferente CSS na tela
+    if page.has_css?(".alert-error") 
         expect(find(".alert-error").text).to eql expected_alert
+    elsif page.has_css?(".alert-dark") 
+        expect(find(".alert-dark").text).to eql expected_alert
     end 
+
+    # # Outra opção mais assertiva quando tem vários elementos diferente CSS na tela
+    # if page.has_css?(".alert-dark") 
+    #     expect(find(".alert-dark").text).to eql expected_alert
+    # elsif page.has_css?(".alert-error") 
+    #     expect(find(".alert-error").text).to eql expected_alert
+    # end 
+
+
 end
