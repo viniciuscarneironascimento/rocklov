@@ -1,5 +1,10 @@
 Dado('que acesso a página principal') do
-    visit "http://rocklov-web:3000"
+    # A linha abaixo será substituída pela URL padrão definida no arquivo env.rb
+    # visit "http://rocklov-web:3000"
+
+    # Agora basta colocar "/caminho" que vem após a URL padrão que é "http://rocklov-web:3000"
+    # Basta colocar "/" pois a URL de destino é a mesma URL padrão, ou seja, "http://rocklov-web:3000"
+    visit "/"
   end
   
   Quando('submeto minhas credenciais com {string} e {string}') do |email, password|

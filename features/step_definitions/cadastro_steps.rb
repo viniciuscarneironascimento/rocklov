@@ -3,7 +3,11 @@
 
 # @cadastro
 Dado('que acesso a página de cadastro') do
-    visit "http://rocklov-web:3000/signup"
+    # A linha abaixo será substituída pela URL padrão definida no arquivo env.rb
+    # visit "http://rocklov-web:3000/signup"
+
+    # Agora basta colocar "/caminho" que vem após a URL padrão que é "http://rocklov-web:3000"
+    visit "/signup"
 end
   
 # Quando('submeto o meu cadastro completo') do
@@ -40,7 +44,7 @@ Quando('submeto o seguinte formulário de cadastro:') do |table|
 
 # Para limpar os dados do banco MongoDB usamos a linha abaixo. Comentei para poder executar a regressão total sem falhas.
     # MongoDB.new.remove_user(user[:email])
-    
+
     find("#fullName").set user[:nome]
     find("#email").set user[:email]
     find("#password").set user[:senha]
