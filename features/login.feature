@@ -25,12 +25,12 @@ Funcionalidade: Login
         Então vejo a mensagem de alerta: "<mensagem_output>"
 
         Exemplos:
-            | email_input                | senha_input | mensagem_output                   |
-            | contato.vinicius@gmail.com | 1234        | "Usuário e/ou senha inválidos."   |
-            | contato@gmail.com          | 12345       | "Usuário e/ou senha inválidos."   |
-            | contato.vinicius*gmail.com | 12345       | "Oops. Informe um email válido!"  |
-            |                            | 12345       | "Oops. Informe um email válido!"  |
+            | email_input                | senha_input | mensagem_output                    |
+            | contato.vinicius@gmail.com | 1234        | "Usuário e/ou senha inválidos."    |
+            | contato@gmail.com          | 12345       | "Usuário e/ou senha inválidos."    |
+            | contato.vinicius*gmail.com | 12345       | "Oops. Informe um email válido!"   |
+            |                            | 12345       | "Oops. Informe um email válido!"   |
             | contato.vinicius@gmail.com |             | "Oops. Informe sua senha secreta!" |
-            |                            |             | "Oops. Informe um email válido!"  |
-            | contato@gmail.com          | 1234        | "Usuário e/ou senha inválidos."   |
+            |                            |             | "Oops. Informe um email válido!"   |
+            | contato@gmail.com          | 1234        | "Usuário e/ou senha inválidos."    |
 

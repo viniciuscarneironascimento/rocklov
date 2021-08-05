@@ -12,3 +12,9 @@ Então('sou redirecionado para o Dashboard') do
     # O sleep deve ser retirado no final, pois só é usado para dar uma noção na etapa de desenv
     # sleep 5
 end
+
+#Step compartilhado entre os arquivos cadastro e login, pois utilizam a mesma regra
+Então('vejo a mensagem de alerta: "{string}"') do |expected_alert|
+    alert = find(".alert-dark")
+    expect(alert.text).to eql expected_alert
+end

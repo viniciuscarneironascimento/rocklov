@@ -137,10 +137,11 @@ end
 
 
 # O cucumber modificou a linha de "Então('vejo a mensagem de alerta: {string}') do |expected_alert|" para a linha abaixo
-Então('vejo a mensagem de alerta: "{string}"') do |expected_alert|
-    alert = find(".alert-dark")
-    expect(alert.text).to eql expected_alert
-end
+# 04/08/2021 método movido para arquivo shared_steps.rb
+# Então('vejo a mensagem de alerta: "{string}"') do |expected_alert|
+#     alert = find(".alert-dark")
+#     expect(alert.text).to eql expected_alert
+# end
 
 
 
