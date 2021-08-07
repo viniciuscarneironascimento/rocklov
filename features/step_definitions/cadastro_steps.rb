@@ -1,4 +1,4 @@
-# 20/07/2021 2º- Esta "require" complementa a chamada da linha que instancia a conexaão com o banco de dados " client = Mongo::Client.new('mongodb://rocklov-db:27017/rocklov')"
+# 20/07/2021 2º- Esta "require" complementa a chamada da linha que instancia a conexão com o banco de dados " client = Mongo::Client.new('mongodb://rocklov-db:27017/rocklov')"
 # require 'mongo'
 
 # @cadastro
@@ -14,7 +14,7 @@ end
 #     # 20/07/2021 1º- Depois de ter criado todo o código anteriormente, hoje adicionarei um comando para realizar operação no banco de dados MongoDB conforme abaixo. Mas para isto funcionar é necessário importar a biblioteca gem do mongo no topo da página.
 #     # client = Mongo::Client.new('mongodb://rocklov-db:27017/rocklov')
 
-#  # 20/07/2021 3º- Ainda seguindo a documentação do mongo, para acessar uma collection (mesmo que tabela do BD), será necessário adicionar o comando abaixo epassar o nome da tabela do mongo, ou seja "users":
+#  # 20/07/2021 3º- Ainda seguindo a documentação do mongo, para acessar uma collection (mesmo que tabela do BD), será necessário adicionar o comando abaixo e passar o nome da tabela do mongo, ou seja "users":
 #     # collection = client[:users]
 #     # users = client[:users]
 #     # 20/07/2021 4º- Agora usaremos um métodos para DELETAR dados desta tabela "users":
