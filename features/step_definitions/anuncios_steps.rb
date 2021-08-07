@@ -1,6 +1,11 @@
 # Criando o step "Dado" seguido dos "e" para dar acesso a tela de cadastro. Os "E" são criados como "DADO".
 Dado('que estou logado como {string} e {string}') do |email, password|
+  # Crio a linha abaixo para guardar o e-mail em uma variável global
+  @email = email
+
+  # Para visitar a página principal basta usar a alinha abaixo, pois a URL padrão já foi definida no arquivo env.rb
   visit "/"
+
   find("input[placeholder='Seu e-email']").set email
   find("input[type=password").set password
 
@@ -20,15 +25,17 @@ Dado('que acesso o formulário de cadastro de anúncios') do
   # Criar um checkpoint para garantir que fui redirecionado para a página correta
   # expect(page).to have_css "#equipoForm"
 
-  # Outra opção seria
+  # Outra opção para garantir que fui redirecionado para a página correta
   expect(page).to have_current_path('/equipos')
 end
 
 Dado('que eu tenho os seguintes equipamentos:') do |table|                        
+  # O código abaixo é feito para obter as linhas de uma tabela
   @anuncio = table.rows_hash   
 
 # Este é o ponto onde devo adicionar a exclusão do equipamento do banco, pois dessa forma o meu teste ficará sempre válido, ele sempre vai passar porque antes de submeter o cadastro ele sempre vai garantir que a massa de teste é válida e não vai deixar repetir.
-MongoDB.new.remove_equipo(@anuncio[:nome])
+# A linha abaixo apaga do banco qualquer equipamento com o email logado passado por parâmetros. Desta forma, ao submeter o cadastro no "Quando" a seguir não haverá duplicidade de dados.
+MongoDB.new.remove_equipo(@anuncio[:nome], @email)
 
 end                                                                               
 
