@@ -8,7 +8,7 @@ Dado('que acesso a página principal') do
   end
   
   Quando('submeto minhas credenciais com {string} e {string}') do |email, password|
-    find("input[placeholder='Seu e-email']").set email
+    find("input[placeholder='Seu email']").set email
     find("input[type=password").set password
     click_button "Entrar"
   end
@@ -17,8 +17,8 @@ Dado('que acesso a página principal') do
     user = table.hashes.first
 
     # Substitui os valor antes passados por string por hashes:     user[:chave]
-        find("#email").set user[:email]
-        find("#password").set user[:senha]
+        find("#user_email").set user[:email]
+        find("#user_password").set user[:senha]
         click_button "Entrar"
   end
   

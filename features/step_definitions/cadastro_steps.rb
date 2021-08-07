@@ -43,12 +43,14 @@ Quando('submeto o seguinte formulário de cadastro:') do |table|
 # Substitui os valor antes passados por string por hashes:     user[:chave]
 
 # Para limpar os dados do banco MongoDB usamos a linha abaixo. Comentei para poder executar a regressão total sem falhas.
-    # MongoDB.new.remove_user(user[:email])
+    MongoDB.new.remove_user(user[:email])
 
     find("#fullName").set user[:nome]
     find("#email").set user[:email]
     find("#password").set user[:senha]
     click_button "Cadastrar"
+
+    # Com a nova versão, o sistema está demorando para processar e o Capybara não está encontrando o elemento na tela. Desta forma irei adicionar uma espera default no arquivo env.rb 
 end
 
 

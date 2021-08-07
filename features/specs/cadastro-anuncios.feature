@@ -5,6 +5,7 @@ Funcionalidade: Cadastro de Anúncios
     Quero cadastrar meus equipamentos
     Para que eu possa disponibilizá-los para locação
 
+    @novo_equipo
     Cenario: Novo equipo
 
         Dado que estou logado como "betao@yahoo.com.br" e "12345"

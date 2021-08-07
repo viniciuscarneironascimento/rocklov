@@ -6,7 +6,7 @@ Dado('que estou logado como {string} e {string}') do |email, password|
   # Para visitar a página principal basta usar a alinha abaixo, pois a URL padrão já foi definida no arquivo env.rb
   visit "/"
 
-  find("input[placeholder='Seu e-email']").set email
+  find("input[placeholder='Seu email']").set email
   find("input[type=password").set password
 
   # Outras formas de localizar um botão. Se buscar pelo parâmetro "CSS" basta colocar um ponto"." antes da descrição Exemplo:
@@ -19,14 +19,15 @@ end
  
 Dado('que acesso o formulário de cadastro de anúncios') do
   # Outras formas de localizar um botão. Se buscar pelo parâmetro "CSS" basta colocar um ponto"." antes da descrição Exemplo:
-  find('.btn-primary').click
-  # click_button " Criar anúncio"
+  # find('.btn-primary').click
+  
+  click_button "Criar anúncio"
 
   # Criar um checkpoint para garantir que fui redirecionado para a página correta
-  # expect(page).to have_css "#equipoForm"
-
+  expect(page).to have_css "#equipoForm"
+  
   # Outra opção para garantir que fui redirecionado para a página correta
-  expect(page).to have_current_path('/equipos')
+  # expect(page).to have_current_path('/equipos')
 end
 
 Dado('que eu tenho os seguintes equipamentos:') do |table|                        
