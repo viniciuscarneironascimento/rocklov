@@ -1,0 +1,3 @@
+---
+default: --publish-quiet
+# É necessário iniciar com 3 tracinhos "---". A linha "default: --publish" defini que o relatório do cucumber será guardado na nuvem. Parta desabilitar esta opção faremos como na linha 2
