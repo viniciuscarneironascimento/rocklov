@@ -33,9 +33,11 @@ Funcionalidade: Cadastro de Anúncios
         Então deve conter a mensagem de alerta: "<mensagem_output>"
 
         Exemplos:
-            | foto_input    | nome_input        | categoria_input | preco_input | mensagem_output                   |
-            |               | Fender Strato     | Cordas          | 100         | Adicione uma foto no seu anúncio! |
-            | amp.jpg       |                   | Outros          | 400         | Informe a descrição do anúncio!   |
-            | clarinete.jpg | Clarinete Yamaha  |                 | 300         | Informe a categoria               |
-            | sanfona.jpg   | Sanfona Scandalli | Teclas          |             | Informe o valor da diária         |
+            | foto_input    | nome_input        | categoria_input | preco_input | mensagem_output                      |
+            |               | Fender Strato     | Cordas          | 100         | Adicione uma foto no seu anúncio!    |
+            | amp.jpg       |                   | Outros          | 400         | Informe a descrição do anúncio!      |
+            | clarinete.jpg | Clarinete Yamaha  |                 | 300         | Informe a categoria                  |
+            | sanfona.jpg   | Sanfona Scandalli | Teclas          |             | Informe o valor da diária            |
+            | conga.jpg     | Conga             | Outros          | abc         | O valor da diária deve ser numérico! |
+            | conga.jpg     | Conga             | Outros          | 100a        | O valor da diária deve ser numérico! |
 

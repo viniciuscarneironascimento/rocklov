@@ -868,3 +868,111 @@ D, [2021-08-08T18:07:03.110658 #16568] DEBUG -- : MONGODB | Server description f
 D, [2021-08-08T18:07:03.111264 #16568] DEBUG -- : MONGODB | There was a change in the members of the 'Single' topology.
 D, [2021-08-08T18:07:03.112291 #16568] DEBUG -- : MONGODB | rocklov-db:27017 req:28 conn:1:2 sconn:534 | admin.endSessions | STARTED | {"endSessions"=>[{"id"=><BSON::Binary:0x4620 type=uuid data=0xde4f774b1b6f4cde...>}], "$db"=>"admin"}
 D, [2021-08-08T18:07:03.124000 #16568] DEBUG -- : MONGODB | rocklov-db:27017 req:28 | admin.endSessions | SUCCEEDED | 0.011s
+D, [2021-08-08T18:57:27.909610 #13704] DEBUG -- : MONGODB | Topology type 'unknown' initializing.
+D, [2021-08-08T18:57:27.911101 #13704] DEBUG -- : MONGODB | There was a change in the members of the 'Unknown' topology.
+D, [2021-08-08T18:57:27.911844 #13704] DEBUG -- : MONGODB | Server rocklov-db:27017 initializing.
+D, [2021-08-08T18:57:27.912347 #13704] DEBUG -- : MONGODB | Waiting for up to 30.00 seconds for servers to be scanned: #<Cluster topology=Unknown[rocklov-db:27017] servers=[#<Server address=rocklov-db:27017 UNKNOWN>]>
+D, [2021-08-08T18:57:27.933646 #13704] DEBUG -- : MONGODB | Server description for rocklov-db:27017 changed from 'unknown' to 'standalone'.
+D, [2021-08-08T18:57:27.934451 #13704] DEBUG -- : MONGODB | Topology type 'Unknown' changed to type 'Single'.
+D, [2021-08-08T18:57:27.949817 #13704] DEBUG -- : MONGODB | Server description for rocklov-db:27017 changed from 'standalone' to 'standalone'.
+D, [2021-08-08T18:57:27.950082 #13704] DEBUG -- : MONGODB | There was a change in the members of the 'Single' topology.
+D, [2021-08-08T18:57:27.951440 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:7 conn:1:1 sconn:4 | rocklov.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"betao@yahoo.com.br"}, "$db"=>"rocklov", "lsid"=>{"id"=><BSON::Binary:0x4620 type=uuid data=0xd464ab2c57b14ca6...>}}
+D, [2021-08-08T18:57:27.963386 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:7 | rocklov.find | SUCCEEDED | 0.012s
+D, [2021-08-08T18:57:27.965165 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:8 conn:1:1 sconn:4 | rocklov.delete | STARTED | {"delete"=>"equipos", "ordered"=>true, "deletes"=>[{"q"=>{"name"=>"Fender Strato", "user"=>BSON::ObjectId('611053313d397e0027503e99')}, "limit"=>0}], "$db"=>"rocklov", "lsid"=>{"id"=><BSON::Binary:0x4620 type=uuid data=0xd464ab2c57b14ca6...>}}
+D, [2021-08-08T18:57:27.977557 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:8 | rocklov.delete | SUCCEEDED | 0.012s
+D, [2021-08-08T18:57:37.946798 #13704] DEBUG -- : MONGODB | Server description for rocklov-db:27017 changed from 'standalone' to 'standalone'.
+D, [2021-08-08T18:57:37.947147 #13704] DEBUG -- : MONGODB | There was a change in the members of the 'Single' topology.
+D, [2021-08-08T18:57:42.090110 #13704] DEBUG -- : MONGODB | Topology type 'unknown' initializing.
+D, [2021-08-08T18:57:42.090711 #13704] DEBUG -- : MONGODB | There was a change in the members of the 'Unknown' topology.
+D, [2021-08-08T18:57:42.091004 #13704] DEBUG -- : MONGODB | Server rocklov-db:27017 initializing.
+D, [2021-08-08T18:57:42.091415 #13704] DEBUG -- : MONGODB | Waiting for up to 30.00 seconds for servers to be scanned: #<Cluster topology=Unknown[rocklov-db:27017] servers=[#<Server address=rocklov-db:27017 UNKNOWN>]>
+D, [2021-08-08T18:57:42.110501 #13704] DEBUG -- : MONGODB | Server description for rocklov-db:27017 changed from 'unknown' to 'standalone'.
+D, [2021-08-08T18:57:42.110872 #13704] DEBUG -- : MONGODB | Topology type 'Unknown' changed to type 'Single'.
+D, [2021-08-08T18:57:42.128263 #13704] DEBUG -- : MONGODB | Server description for rocklov-db:27017 changed from 'standalone' to 'standalone'.
+D, [2021-08-08T18:57:42.128718 #13704] DEBUG -- : MONGODB | There was a change in the members of the 'Single' topology.
+D, [2021-08-08T18:57:42.130785 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:11 conn:1:1 sconn:6 | rocklov.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"betao@yahoo.com.br"}, "$db"=>"rocklov", "lsid"=>{"id"=><BSON::Binary:0x5180 type=uuid data=0x27dea9b7f82e411f...>}}
+D, [2021-08-08T18:57:42.142629 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:11 | rocklov.find | SUCCEEDED | 0.012s
+D, [2021-08-08T18:57:42.144644 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:12 conn:1:1 sconn:6 | rocklov.delete | STARTED | {"delete"=>"equipos", "ordered"=>true, "deletes"=>[{"q"=>{"name"=>"", "user"=>BSON::ObjectId('611053313d397e0027503e99')}, "limit"=>0}], "$db"=>"rocklov", "lsid"=>{"id"=><BSON::Binary:0x5180 type=uuid data=0x27dea9b7f82e411f...>}}
+D, [2021-08-08T18:57:42.157005 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:12 | rocklov.delete | SUCCEEDED | 0.012s
+D, [2021-08-08T18:57:52.123068 #13704] DEBUG -- : MONGODB | Server description for rocklov-db:27017 changed from 'standalone' to 'standalone'.
+D, [2021-08-08T18:57:52.123438 #13704] DEBUG -- : MONGODB | There was a change in the members of the 'Single' topology.
+D, [2021-08-08T18:57:56.669120 #13704] DEBUG -- : MONGODB | Topology type 'unknown' initializing.
+D, [2021-08-08T18:57:56.670253 #13704] DEBUG -- : MONGODB | There was a change in the members of the 'Unknown' topology.
+D, [2021-08-08T18:57:56.670661 #13704] DEBUG -- : MONGODB | Server rocklov-db:27017 initializing.
+D, [2021-08-08T18:57:56.671147 #13704] DEBUG -- : MONGODB | Waiting for up to 30.00 seconds for servers to be scanned: #<Cluster topology=Unknown[rocklov-db:27017] servers=[#<Server address=rocklov-db:27017 UNKNOWN>]>
+D, [2021-08-08T18:57:56.688481 #13704] DEBUG -- : MONGODB | Server description for rocklov-db:27017 changed from 'unknown' to 'standalone'.
+D, [2021-08-08T18:57:56.688885 #13704] DEBUG -- : MONGODB | Topology type 'Unknown' changed to type 'Single'.
+D, [2021-08-08T18:57:56.703990 #13704] DEBUG -- : MONGODB | Server description for rocklov-db:27017 changed from 'standalone' to 'standalone'.
+D, [2021-08-08T18:57:56.704265 #13704] DEBUG -- : MONGODB | There was a change in the members of the 'Single' topology.
+D, [2021-08-08T18:57:56.705425 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:15 conn:1:1 sconn:8 | rocklov.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"betao@yahoo.com.br"}, "$db"=>"rocklov", "lsid"=>{"id"=><BSON::Binary:0x5340 type=uuid data=0xd2a0231f6082469b...>}}
+D, [2021-08-08T18:57:56.716628 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:15 | rocklov.find | SUCCEEDED | 0.011s
+D, [2021-08-08T18:57:56.718304 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:16 conn:1:1 sconn:8 | rocklov.delete | STARTED | {"delete"=>"equipos", "ordered"=>true, "deletes"=>[{"q"=>{"name"=>"Clarinete Yamaha", "user"=>BSON::ObjectId('611053313d397e0027503e99')}, "limit"=>0}], "$db"=>"rocklov", "lsid"=>{"id"=><BSON::Binary:0x5340 type=uuid data=0xd2a0231f6082469b...>}}
+D, [2021-08-08T18:57:56.730291 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:16 | rocklov.delete | SUCCEEDED | 0.012s
+D, [2021-08-08T18:58:06.703010 #13704] DEBUG -- : MONGODB | Server description for rocklov-db:27017 changed from 'standalone' to 'standalone'.
+D, [2021-08-08T18:58:06.703951 #13704] DEBUG -- : MONGODB | There was a change in the members of the 'Single' topology.
+D, [2021-08-08T18:58:10.004889 #13704] DEBUG -- : MONGODB | Topology type 'unknown' initializing.
+D, [2021-08-08T18:58:10.006447 #13704] DEBUG -- : MONGODB | There was a change in the members of the 'Unknown' topology.
+D, [2021-08-08T18:58:10.007472 #13704] DEBUG -- : MONGODB | Server rocklov-db:27017 initializing.
+D, [2021-08-08T18:58:10.007900 #13704] DEBUG -- : MONGODB | Waiting for up to 30.00 seconds for servers to be scanned: #<Cluster topology=Unknown[rocklov-db:27017] servers=[#<Server address=rocklov-db:27017 UNKNOWN>]>
+D, [2021-08-08T18:58:10.025100 #13704] DEBUG -- : MONGODB | Server description for rocklov-db:27017 changed from 'unknown' to 'standalone'.
+D, [2021-08-08T18:58:10.025481 #13704] DEBUG -- : MONGODB | Topology type 'Unknown' changed to type 'Single'.
+D, [2021-08-08T18:58:10.041199 #13704] DEBUG -- : MONGODB | Server description for rocklov-db:27017 changed from 'standalone' to 'standalone'.
+D, [2021-08-08T18:58:10.041483 #13704] DEBUG -- : MONGODB | There was a change in the members of the 'Single' topology.
+D, [2021-08-08T18:58:10.042909 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:19 conn:1:1 sconn:10 | rocklov.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"betao@yahoo.com.br"}, "$db"=>"rocklov", "lsid"=>{"id"=><BSON::Binary:0x5540 type=uuid data=0x21e01e3e354f4526...>}}
+D, [2021-08-08T18:58:10.054846 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:19 | rocklov.find | SUCCEEDED | 0.012s
+D, [2021-08-08T18:58:10.056514 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:20 conn:1:1 sconn:10 | rocklov.delete | STARTED | {"delete"=>"equipos", "ordered"=>true, "deletes"=>[{"q"=>{"name"=>"Sanfona Scandalli", "user"=>BSON::ObjectId('611053313d397e0027503e99')}, "limit"=>0}], "$db"=>"rocklov", "lsid"=>{"id"=><BSON::Binary:0x5540 type=uuid data=0x21e01e3e354f4526...>}}
+D, [2021-08-08T18:58:10.068556 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:20 | rocklov.delete | SUCCEEDED | 0.012s
+D, [2021-08-08T18:58:20.037438 #13704] DEBUG -- : MONGODB | Server description for rocklov-db:27017 changed from 'standalone' to 'standalone'.
+D, [2021-08-08T18:58:20.037942 #13704] DEBUG -- : MONGODB | There was a change in the members of the 'Single' topology.
+D, [2021-08-08T18:58:23.511616 #13704] DEBUG -- : MONGODB | Topology type 'unknown' initializing.
+D, [2021-08-08T18:58:23.512420 #13704] DEBUG -- : MONGODB | There was a change in the members of the 'Unknown' topology.
+D, [2021-08-08T18:58:23.512866 #13704] DEBUG -- : MONGODB | Server rocklov-db:27017 initializing.
+D, [2021-08-08T18:58:23.513296 #13704] DEBUG -- : MONGODB | Waiting for up to 30.00 seconds for servers to be scanned: #<Cluster topology=Unknown[rocklov-db:27017] servers=[#<Server address=rocklov-db:27017 UNKNOWN>]>
+D, [2021-08-08T18:58:23.539139 #13704] DEBUG -- : MONGODB | Server description for rocklov-db:27017 changed from 'unknown' to 'standalone'.
+D, [2021-08-08T18:58:23.539711 #13704] DEBUG -- : MONGODB | Topology type 'Unknown' changed to type 'Single'.
+D, [2021-08-08T18:58:23.555753 #13704] DEBUG -- : MONGODB | Server description for rocklov-db:27017 changed from 'standalone' to 'standalone'.
+D, [2021-08-08T18:58:23.556102 #13704] DEBUG -- : MONGODB | There was a change in the members of the 'Single' topology.
+D, [2021-08-08T18:58:23.557943 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:23 conn:1:1 sconn:12 | rocklov.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"betao@yahoo.com.br"}, "$db"=>"rocklov", "lsid"=>{"id"=><BSON::Binary:0x5760 type=uuid data=0x106eb00bcc484473...>}}
+D, [2021-08-08T18:58:23.570114 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:23 | rocklov.find | SUCCEEDED | 0.012s
+D, [2021-08-08T18:58:23.571933 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:24 conn:1:1 sconn:12 | rocklov.delete | STARTED | {"delete"=>"equipos", "ordered"=>true, "deletes"=>[{"q"=>{"name"=>"Conga", "user"=>BSON::ObjectId('611053313d397e0027503e99')}, "limit"=>0}], "$db"=>"rocklov", "lsid"=>{"id"=><BSON::Binary:0x5760 type=uuid data=0x106eb00bcc484473...>}}
+D, [2021-08-08T18:58:23.583853 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:24 | rocklov.delete | SUCCEEDED | 0.012s
+D, [2021-08-08T18:58:33.553042 #13704] DEBUG -- : MONGODB | Server description for rocklov-db:27017 changed from 'standalone' to 'standalone'.
+D, [2021-08-08T18:58:33.553640 #13704] DEBUG -- : MONGODB | There was a change in the members of the 'Single' topology.
+D, [2021-08-08T18:58:39.023554 #13704] DEBUG -- : MONGODB | Topology type 'unknown' initializing.
+D, [2021-08-08T18:58:39.025985 #13704] DEBUG -- : MONGODB | There was a change in the members of the 'Unknown' topology.
+D, [2021-08-08T18:58:39.026325 #13704] DEBUG -- : MONGODB | Server rocklov-db:27017 initializing.
+D, [2021-08-08T18:58:39.026931 #13704] DEBUG -- : MONGODB | Waiting for up to 30.00 seconds for servers to be scanned: #<Cluster topology=Unknown[rocklov-db:27017] servers=[#<Server address=rocklov-db:27017 UNKNOWN>]>
+D, [2021-08-08T18:58:39.043937 #13704] DEBUG -- : MONGODB | Server description for rocklov-db:27017 changed from 'unknown' to 'standalone'.
+D, [2021-08-08T18:58:39.044319 #13704] DEBUG -- : MONGODB | Topology type 'Unknown' changed to type 'Single'.
+D, [2021-08-08T18:58:39.059238 #13704] DEBUG -- : MONGODB | Server description for rocklov-db:27017 changed from 'standalone' to 'standalone'.
+D, [2021-08-08T18:58:39.059574 #13704] DEBUG -- : MONGODB | There was a change in the members of the 'Single' topology.
+D, [2021-08-08T18:58:39.060750 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:27 conn:1:1 sconn:14 | rocklov.find | STARTED | {"find"=>"users", "filter"=>{"email"=>"betao@yahoo.com.br"}, "$db"=>"rocklov", "lsid"=>{"id"=><BSON::Binary:0x6020 type=uuid data=0x0f06dc84ec6c4521...>}}
+D, [2021-08-08T18:58:39.071713 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:27 | rocklov.find | SUCCEEDED | 0.011s
+D, [2021-08-08T18:58:39.074146 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:28 conn:1:1 sconn:14 | rocklov.delete | STARTED | {"delete"=>"equipos", "ordered"=>true, "deletes"=>[{"q"=>{"name"=>"Conga", "user"=>BSON::ObjectId('611053313d397e0027503e99')}, "limit"=>0}], "$db"=>"rocklov", "lsid"=>{"id"=><BSON::Binary:0x6020 type=uuid data=0x0f06dc84ec6c4521...>}}
+D, [2021-08-08T18:58:39.085482 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:28 | rocklov.delete | SUCCEEDED | 0.011s
+D, [2021-08-08T18:58:49.056069 #13704] DEBUG -- : MONGODB | Server description for rocklov-db:27017 changed from 'standalone' to 'standalone'.
+D, [2021-08-08T18:58:49.056373 #13704] DEBUG -- : MONGODB | There was a change in the members of the 'Single' topology.
+D, [2021-08-08T18:58:51.681177 #13704] DEBUG -- : MONGODB | Server description for rocklov-db:27017 changed from 'standalone' to 'standalone'.
+D, [2021-08-08T18:58:51.681557 #13704] DEBUG -- : MONGODB | There was a change in the members of the 'Single' topology.
+D, [2021-08-08T18:58:51.682254 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:30 conn:1:2 sconn:15 | admin.endSessions | STARTED | {"endSessions"=>[{"id"=><BSON::Binary:0x6020 type=uuid data=0x0f06dc84ec6c4521...>}], "$db"=>"admin"}
+D, [2021-08-08T18:58:51.693615 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:30 | admin.endSessions | SUCCEEDED | 0.011s
+D, [2021-08-08T18:58:51.711300 #13704] DEBUG -- : MONGODB | Server description for rocklov-db:27017 changed from 'standalone' to 'standalone'.
+D, [2021-08-08T18:58:51.711572 #13704] DEBUG -- : MONGODB | There was a change in the members of the 'Single' topology.
+D, [2021-08-08T18:58:51.712345 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:32 conn:1:2 sconn:16 | admin.endSessions | STARTED | {"endSessions"=>[{"id"=><BSON::Binary:0x5760 type=uuid data=0x106eb00bcc484473...>}], "$db"=>"admin"}
+D, [2021-08-08T18:58:51.723902 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:32 | admin.endSessions | SUCCEEDED | 0.011s
+D, [2021-08-08T18:58:51.741633 #13704] DEBUG -- : MONGODB | Server description for rocklov-db:27017 changed from 'standalone' to 'standalone'.
+D, [2021-08-08T18:58:51.741913 #13704] DEBUG -- : MONGODB | There was a change in the members of the 'Single' topology.
+D, [2021-08-08T18:58:51.742561 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:34 conn:1:2 sconn:17 | admin.endSessions | STARTED | {"endSessions"=>[{"id"=><BSON::Binary:0x5540 type=uuid data=0x21e01e3e354f4526...>}], "$db"=>"admin"}
+D, [2021-08-08T18:58:51.754101 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:34 | admin.endSessions | SUCCEEDED | 0.011s
+D, [2021-08-08T18:58:51.771929 #13704] DEBUG -- : MONGODB | Server description for rocklov-db:27017 changed from 'standalone' to 'standalone'.
+D, [2021-08-08T18:58:51.772256 #13704] DEBUG -- : MONGODB | There was a change in the members of the 'Single' topology.
+D, [2021-08-08T18:58:51.773006 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:36 conn:1:2 sconn:18 | admin.endSessions | STARTED | {"endSessions"=>[{"id"=><BSON::Binary:0x5340 type=uuid data=0xd2a0231f6082469b...>}], "$db"=>"admin"}
+D, [2021-08-08T18:58:51.784467 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:36 | admin.endSessions | SUCCEEDED | 0.011s
+D, [2021-08-08T18:58:51.805801 #13704] DEBUG -- : MONGODB | Server description for rocklov-db:27017 changed from 'standalone' to 'standalone'.
+D, [2021-08-08T18:58:51.806259 #13704] DEBUG -- : MONGODB | There was a change in the members of the 'Single' topology.
+D, [2021-08-08T18:58:51.806973 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:38 conn:1:2 sconn:19 | admin.endSessions | STARTED | {"endSessions"=>[{"id"=><BSON::Binary:0x5180 type=uuid data=0x27dea9b7f82e411f...>}], "$db"=>"admin"}
+D, [2021-08-08T18:58:51.818652 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:38 | admin.endSessions | SUCCEEDED | 0.011s
+D, [2021-08-08T18:58:51.836431 #13704] DEBUG -- : MONGODB | Server description for rocklov-db:27017 changed from 'standalone' to 'standalone'.
+D, [2021-08-08T18:58:51.836769 #13704] DEBUG -- : MONGODB | There was a change in the members of the 'Single' topology.
+D, [2021-08-08T18:58:51.837456 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:40 conn:1:2 sconn:20 | admin.endSessions | STARTED | {"endSessions"=>[{"id"=><BSON::Binary:0x4620 type=uuid data=0xd464ab2c57b14ca6...>}], "$db"=>"admin"}
+D, [2021-08-08T18:58:51.848970 #13704] DEBUG -- : MONGODB | rocklov-db:27017 req:40 | admin.endSessions | SUCCEEDED | 0.011s
