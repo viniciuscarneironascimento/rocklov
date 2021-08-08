@@ -1,3 +1,7 @@
 ---
-default: --publish-quiet
+default: --publish-quiet -p html -p bdd
+bdd: -f pretty
+html: -f html -o logs/report.html
+
 # É necessário iniciar com 3 tracinhos "---". A linha "default: --publish" defini que o relatório do cucumber será guardado na nuvem. Parta desabilitar esta opção faremos como na linha 2
+# Criando outras configurações para gravar o relatório em HTML na pasta log e também exibir os dados de execução no prompt de comando.

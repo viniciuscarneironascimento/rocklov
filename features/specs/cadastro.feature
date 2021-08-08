@@ -30,4 +30,4 @@ Funcionalidade: Cadastro
             | Vinicius   | contato*gmail.com          | 12345       | "Oops. Informe um email válido!"   |
             | Vinicius   | contato#gmail.com          | 12345       | "Oops. Informe um email válido!"   |
             | Vinicius   | contato.vinicius@gmail.com |             | "Oops. Informe sua senha secreta!" |
-            | Vinicius   | contato.vinicius@gmail.com | 12345       | "🤭 Email já cadastrado."          |
+            | Vinicius   | contato.vinicius@gmail.com | 12345       | "Email já cadastrado."             |
