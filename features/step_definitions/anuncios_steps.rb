@@ -1,7 +1,15 @@
-# Criando o step "Dado" seguido dos "e" para dar acesso a tela de cadastro. Os "E" são criados como "DADO".
-Dado('que estou logado como {string} e {string}') do |email, password|
-  # Crio a linha abaixo para guardar o e-mail em uma variável global
+# Este novo step abaixo substitui o step "Dado('que estou logado como {string} e {string}') do |email, password|" escrito antes de criar um "Contexto" no Gherkin. Portanto, basta recortar o seu conteúdo e adicionar aqui. Irei comentar as linhas 11,13,33,39,40
+Dado('Login como {string} e {string}') do |email, password|
   @email = email
+  @login_page.open
+  @login_page.with(email, password)
+end
+
+
+# Criando o step "Dado" seguido dos "e" para dar acesso a tela de cadastro. Os "E" são criados como "DADO".
+# Dado('que estou logado como {string} e {string}') do |email, password|
+  # Crio a linha abaixo para guardar o e-mail em uma variável global
+  # @email = email
 
   # Para visitar a página principal basta usar a alinha abaixo, pois a URL padrão já foi definida no arquivo env.rb
   # visit "/"
@@ -21,14 +29,14 @@ Dado('que estou logado como {string} e {string}') do |email, password|
    # A instância criada abaixo será substituída pelo GANCHO ou HOOKS e criada uma variável global
   # login_page = LoginPage.new
 
-  @login_page.open
+  # @login_page.open
   # login_page.campo_email.set email
   # login_page.campo_nome.set password
   # login_page.botao_entrar
 
   # Melhorando ainda mais o PageObject, farei a chamada abaixo que reduz as linhas de código. O método do PageObject já realiza todas estas ações de "set" e "click"
-  @login_page.with(email, password)
-end
+  # @login_page.with(email, password)
+# end
  
 Dado('que acesso o formulário de cadastro de anúncios') do
   # Outras formas de localizar um botão. Se buscar pelo parâmetro "CSS" basta colocar um ponto"." antes da descrição Exemplo:
