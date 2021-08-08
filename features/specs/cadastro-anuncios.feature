@@ -19,3 +19,23 @@ Funcionalidade: Cadastro de Anúncios
             | preco     | 200           |
         Quando submeto o cadastro deste item
         Então devo ver este item no meu Dashboard
+
+    @temp
+    Esquema do Cenario: Tentativa de cadastro de anúncios
+
+        Dado que acesso o formulário de cadastro de anúncios
+            E que eu tenho os seguintes equipamentos:
+            | thumb     | <foto_input>      |
+            | nome      | <nome_input>      |
+            | categoria | <categoria_input> |
+            | preco     | <preco_input>     |
+        Quando submeto o cadastro deste item
+        Então deve conter a mensagem de alerta: "<mensagem_output>"
+
+        Exemplos:
+            | foto_input    | nome_input        | categoria_input | preco_input | mensagem_output                   |
+            |               | Fender Strato     | Cordas          | 100         | Adicione uma foto no seu anúncio! |
+            | amp.jpg       |                   | Outros          | 400         | Informe a descrição do anúncio!   |
+            | clarinete.jpg | Clarinete Yamaha  |                 | 300         | Informe a categoria               |
+            | sanfona.jpg   | Sanfona Scandalli | Teclas          |             | Informe o valor da diária         |
+

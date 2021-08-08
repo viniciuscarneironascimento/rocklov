@@ -129,4 +129,12 @@ Então('devo ver este item no meu Dashboard') do
   # expect(anuncios).to have_content   "R$"+@anuncio[:preco]+"/dia"
   # Com o PageObject implementado, comentar a linha acima
   expect(@dash_page.equipo_list).to have_content   "R$"+@anuncio[:preco]+"/dia"
-end                                                                               
+end      
+
+Então('deve conter a mensagem de alerta: {string}') do |expected_alert|
+  # O trexo "have_content" permite comparar parte de um texto
+  # expect(@alert.alert_element).to have_content(expected_alert)
+
+  # Outra aopção é usando "have_text"
+  expect(@alert.alert_element).to have_text(expected_alert)
+end
