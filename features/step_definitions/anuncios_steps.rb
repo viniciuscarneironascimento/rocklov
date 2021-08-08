@@ -34,11 +34,17 @@ Dado('que acesso o formulário de cadastro de anúncios') do
   # Outras formas de localizar um botão. Se buscar pelo parâmetro "CSS" basta colocar um ponto"." antes da descrição Exemplo:
   # find('.btn-primary').click
   
-  click_button "Criar anúncio"
+  # Com o PageObject da tela DASHBOARD a linha abaixo será substituída pela chamada da classe que executa o método que leva para a tela de cadastro formulário de equipamentos.
+  # click_button "Criar anúncio"
+  @dash_page.goto_equipo_form
+
 
   # Criar um checkpoint para garantir que fui redirecionado para a página correta
-  expect(page).to have_css "#equipoForm"
+  # Com o PageObject a linha abaixo será comentada pois a validação da tela Equipo deverá ser feita na classe PageObject EQUIPOPAGE, ou seja, antes de preencher o formulário com um novo equipamento o Ruby irá validar se está na tela Equipo.
+  # expect(page).to have_css "#equipoForm"
   
+
+
   # Outra opção para garantir que fui redirecionado para a página correta
   # expect(page).to have_current_path('/equipos')
 end
@@ -68,18 +74,18 @@ Quando('submeto o cadastro deste item') do
   #     "input[placeholder*=equipamento]"
   # Usando primeira palavra da descrição, SEM aspas simples e usando '^' circunflexo: 
   #      "input[placeholder^=Descreva]"
-  find("input[placeholder$=equipamento]").set @anuncio[:nome]
+  # find("input[placeholder$=equipamento]").set @anuncio[:nome]
    
   # O campo abaixo não é um "input", é um combo do tipo "SELECT", portando os dados serão informados de outra forma. Primeiro usa um "find" para buscar o elemento "select" (combo), depois usa outro "find" para buscar o elemento filho "option". Porfim, adiciona a seleção do item do combo com ".select_option"
-  find("#category").find('option', text: @anuncio[:categoria]).select_option
+  # find("#category").find('option', text: @anuncio[:categoria]).select_option
 
   # Usarei a primeira palavra da descrição, SEM aspas simples e usando '^' circunflexo: 
   #      "input[placeholder^=Valor]"
   # A forma mais simples seria pelo ID:   find("#price").set @anuncio[:preco]
-  find("input[placeholder^=Valor]").set @anuncio[:preco]
+  # find("input[placeholder^=Valor]").set @anuncio[:preco]
 
   #  Primeiramente temos que identificar o caminho da imagem na pasta local usando "Dir.pwd" e concatena com o caminho das pastas onde a imagem está, por fim concatena com o parâmetro que é o nome do produto.
-  thumb = Dir.pwd + "/features/support/fixtures/images/" + @anuncio[:thumb]
+  # thumb = Dir.pwd + "/features/support/fixtures/images/" + @anuncio[:thumb]
 
   # Log para ver o conteúdo retornado
   # log thumb
@@ -88,19 +94,31 @@ Quando('submeto o cadastro deste item') do
   # O capybara não identificou o elemento pois está com propriedade CSS "display = none"
   # find("#thumbnail input[type=file]").set thumb
   # Neste caso, adicionamos mais uma informação na linha abaixo ficando assim:
-  find("#thumbnail input[type=file]", visible: false).set thumb
+  # find("#thumbnail input[type=file]", visible: false).set thumb
     
-  click_button "Cadastrar"
+  # click_button "Cadastrar"
   # find('.btn-success').click
+
+
+  # Com o PageObject todo o preenchimento da tela e click do botão (linhas acima 77,80,85,88,97,99) passam para a classe EquiposPage.
+ 
+  @equipos_page.create(@anuncio)
+
+
 end                                                                               
                                                                                     
 Então('devo ver este item no meu Dashboard') do                                   
   # Busca a lista de equipamentos cadastrados
-  anuncios = find(".equipo-list")
+  # anuncios = find(".equipo-list")
 
   # Espero que / na lista de anúncios / contenha / o equipamento de nome X
-  expect(anuncios).to have_content @anuncio[:nome]
+  # expect(anuncios).to have_content @anuncio[:nome]
+  # Com o PageObject implementado, comentar a linha acima
+  expect(@dash_page.equipo_list).to have_content @anuncio[:nome]
+
 
   # Validando outros elemntos na tela
-  expect(anuncios).to have_content   "R$"+@anuncio[:preco]+"/dia"
+  # expect(anuncios).to have_content   "R$"+@anuncio[:preco]+"/dia"
+  # Com o PageObject implementado, comentar a linha acima
+  expect(@dash_page.equipo_list).to have_content   "R$"+@anuncio[:preco]+"/dia"
 end                                                                               

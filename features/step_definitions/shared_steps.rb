@@ -7,7 +7,11 @@ Então('sou redirecionado para o Dashboard') do
     # expect(page).to have_current_path('/dashboard')
 
     # Utilizando o comando do RSPEC para busca por um objeto CSS na página fim.
-    expect(page).to have_css ".dashboard"
+    # expect(page).to have_css ".dashboard"
+    # Com o PageObject a linha a ssima será substituída pela linha abaixo
+    expect(@dash_page.on_dash?).to be true    
+
+
 
     # O sleep deve ser retirado no final, pois só é usado para dar uma noção na etapa de desenv
     # sleep 5
