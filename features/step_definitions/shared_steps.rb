@@ -26,11 +26,16 @@ Então('vejo a mensagem de alerta: "{string}"') do |expected_alert|
     # end 
 
     # Outra opção mais assertiva quando tem vários elementos diferente CSS na tela
-    if page.has_css?(".alert-error") 
-        expect(find(".alert-error").text).to eql expected_alert
-    elsif page.has_css?(".alert-dark") 
-        expect(find(".alert-dark").text).to eql expected_alert
-    end 
+    # Usando PageObject: este "Então" valida um elemento da página de login, portanto irei comentar os códigos abaixo e buscar o elemento na Classe LoginPage, porém a validação "EXPECT" será feita aqui mesmo:
+    # if page.has_css?(".alert-error") 
+    #     expect(find(".alert-error").text).to eql expected_alert
+    # elsif page.has_css?(".alert-dark") 
+    #     expect(find(".alert-dark").text).to eql expected_alert
+    # end 
+
+    #  Antes de executar observar a limpeza do registro pelo método " MongoDB.new.remove_user(user[:email])". Quando executa a regressão digitando cucumber no prompt, não existe uma ordem de execução e passa pela exclusão do registro no MongoDB.
+    expect(@alert.alert_element).to eql expected_alert
+
 
     # # Outra opção mais assertiva quando tem vários elementos diferente CSS na tela
     # if page.has_css?(".alert-dark") 

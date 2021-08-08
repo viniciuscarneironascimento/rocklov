@@ -7,7 +7,11 @@ Dado('que acesso a página de cadastro') do
     # visit "http://rocklov-web:3000/signup"
 
     # Agora basta colocar "/caminho" que vem após a URL padrão que é "http://rocklov-web:3000"
-    visit "/signup"
+    # visit "/signup"
+
+    # Com o PageObject criado para as ações desta página, a linha acima será comentada e substituída pela linha abaixo:
+    @signip_page.open
+    
 end
   
 # Quando('submeto o meu cadastro completo') do
@@ -43,12 +47,18 @@ Quando('submeto o seguinte formulário de cadastro:') do |table|
 # Substitui os valor antes passados por string por hashes:     user[:chave]
 
 # Para limpar os dados do banco MongoDB usamos a linha abaixo. Comentei para poder executar a regressão total sem falhas.
-    MongoDB.new.remove_user(user[:email])
+    # MongoDB.new.remove_user(user[:email])
 
-    find("#fullName").set user[:nome]
-    find("#email").set user[:email]
-    find("#password").set user[:senha]
-    click_button "Cadastrar"
+
+    # Com o PageObject as linhas abaixo serão comentadas e todas estas ações serão realizadas dentro da classe SignupPage:
+    # find("#fullName").set user[:nome]
+    # find("#email").set user[:email]
+    # find("#password").set user[:senha]
+    # click_button "Cadastrar"
+
+    # Este método passa um objeto lista inteiro e é desmembrado dentro do método
+    @signip_page.create(user)
+
 
     # Com a nova versão, o sistema está demorando para processar e o Capybara não está encontrando o elemento na tela. Desta forma irei adicionar uma espera default no arquivo env.rb 
 end

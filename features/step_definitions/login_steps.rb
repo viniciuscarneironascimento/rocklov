@@ -7,8 +7,9 @@ Dado('que acesso a página principal') do
   # visit "/"
 
   # Usando PAGE OBJECT a partir daqui. Todo o código anterior deve ser comentado.
-  login_page = LoginPage.new
-  login_page.open
+  # A instância criada abaixo será substituída pelo GANCHO ou HOOKS e criada uma variável global
+  # @login_page = LoginPage.new
+  @login_page.open
 
 end
   
@@ -19,13 +20,15 @@ Quando('submeto minhas credenciais com {string} e {string}') do |email, password
 
 
   # Usando PAGE OBJECT a partir daqui. Todo o código anterior deve ser comentado.
-  login_page = LoginPage.new
+   # A instância criada abaixo será substituída pelo GANCHO ou HOOKS e criada uma variável global
+  # login_page = LoginPage.new
+
   # login_page.campo_email.set email
   # login_page.campo_nome.set password
   # login_page.botao_entrar
 
   # Melhorando ainda mais o PageObject, farei a chamada abaixo que reduz as linhas de código. O método do PageObject já realiza todas estas ações de "set" e "click"
-  login_page.with(email, password)
+  @login_page.with(email, password)
 end
 
 Quando('submeto o seguinte formulario de login:') do |table|
