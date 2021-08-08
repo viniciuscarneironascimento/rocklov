@@ -8,7 +8,7 @@ Funcionalidade: Login
     Contexto:
         Dado que acesso a página principal
 
-    @temp
+    @login
     Cenario: Login do usuário
 
         # Dado que acesso a página principal

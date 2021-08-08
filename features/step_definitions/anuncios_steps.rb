@@ -4,17 +4,28 @@ Dado('que estou logado como {string} e {string}') do |email, password|
   @email = email
 
   # Para visitar a página principal basta usar a alinha abaixo, pois a URL padrão já foi definida no arquivo env.rb
-  visit "/"
+  # visit "/"
 
-  find("input[placeholder='Seu email']").set email
-  find("input[type=password").set password
+  # find("input[placeholder='Seu email']").set email
+  # find("input[type=password").set password
 
   # Outras formas de localizar um botão. Se buscar pelo parâmetro "CSS" basta colocar um ponto"." antes da descrição Exemplo:
-  find('.btn-primary').click
+  # find('.btn-primary').click
   # find('button.btn-primary').click
 
   # Abaixo o modo tradicional de click no botão:
   # click_button "Entrar"
+
+
+  # Usando PAGE OBJECT a partir daqui. Todo o código anterior deve ser comentado.
+  login_page = LoginPage.new
+  login_page.open
+  # login_page.campo_email.set email
+  # login_page.campo_nome.set password
+  # login_page.botao_entrar
+
+  # Melhorando ainda mais o PageObject, farei a chamada abaixo que reduz as linhas de código. O método do PageObject já realiza todas estas ações de "set" e "click"
+  login_page.with(email, password)
 end
  
 Dado('que acesso o formulário de cadastro de anúncios') do
