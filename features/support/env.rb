@@ -11,8 +11,15 @@ require "pry"
 CONFIG = YAML.load_file(File.join(Dir.pwd, "features/support/config/#{ENV["CONFIG"]}"))
 
 Capybara.configure do |config|
-  # definindo navegador padrão
-  config.default_driver = :selenium_chrome
+  # definindo navegador padrão Chrome
+  # config.default_driver = :selenium_chrome
+  # definindo navegador padrão Firefox
+  # config.default_driver = :selenium
+
+  # Execução em modo HEADLESS, ou seja, sem exibição do navegador, por baixo dos panos (background)
+  # config.default_driver = :selenium_headless
+  config.default_driver = :selenium_chrome_headless
+
   #definindo URL padrão. Este endereço será substituído pela CONSTANTE
   # config.app_host = "http://rocklov-web:3000"
   # Dentro do colchetes eu coloco o campo que eu quero carregar que foi criado no arquivo "local.yml ou hml.yml"
