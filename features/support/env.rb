@@ -10,15 +10,34 @@ require "pry"
 # Agora vamos aplicar na linha 17
 CONFIG = YAML.load_file(File.join(Dir.pwd, "features/support/config/#{ENV["CONFIG"]}"))
 
+# Criar constante para definir tipo de browser
+BROWSER = ENV["BROWSER"]
+
+case ENV["BROWSER"]
+when "firefox"
+  @driver = :selenium
+when "chrome"
+  @driver = :selenium_chrome
+when "fire_headless"
+  @driver = :selenium_headless
+when "chrome_headless"
+  @driver = :selenium_chrome_headless
+else
+  raise "Navegador incorreto, variável @driver está vazia, configure arquivo cucumber.yml/default"
+end
+
+# definindo navegador padrão
 Capybara.configure do |config|
   # definindo navegador padrão Chrome
   # config.default_driver = :selenium_chrome
+  config.default_driver = @driver
+
   # definindo navegador padrão Firefox
   # config.default_driver = :selenium
 
   # Execução em modo HEADLESS, ou seja, sem exibição do navegador, por baixo dos panos (background)
   # config.default_driver = :selenium_headless
-  config.default_driver = :selenium_chrome_headless
+  # config.default_driver = :selenium_chrome_headless
 
   #definindo URL padrão. Este endereço será substituído pela CONSTANTE
   # config.app_host = "http://rocklov-web:3000"
