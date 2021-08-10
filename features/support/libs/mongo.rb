@@ -10,8 +10,10 @@ class MongoDB
   attr_accessor :users, :equipos
 
   def initialize
-    # vou copiar a inicialização com o banco de dados, recortar dos métodos abaixo e colar no meu inicializador, pois trata-se de uma ação padrão
-    client = Mongo::Client.new("mongodb://rocklov-db:27017/rocklov")
+    # vou copiar a inicialização com o banco de dados, recortar dos métodos abaixo e colar no meu inicializador, pois trata-se de uma ação padrão. # Este endereço será substituído pela CONSTANTE
+    # client = Mongo::Client.new("mongodb://rocklov-db:27017/rocklov")
+    # Dentro do colchetes eu coloco o campo que eu quero carregar que foi criado no arquivo "local.yml ou hml.yml"
+    client = Mongo::Client.new(CONFIG["mongo"])
 
     # Farei o mesmo com as variáveis usadas nos métodos que eram "users = client[:users]" e passarão a ser "@users = client[:users]" com "@" no início para ser global
     @users = client[:users]

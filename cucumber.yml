@@ -1,8 +1,12 @@
 ---
-default: --publish-quiet -p allure -p bdd
+default: --publish-quiet -p allure -p bdd -p local
 bdd: -f pretty
 html: -f html -o logs/report.html
 allure: --format AllureCucumber::CucumberFormatter --out=logs
+local: CONFIG=local.yml
+hmg: CONFIG=hmg.yml
 
-# É necessário iniciar com 3 tracinhos "---". A linha "default: --publish" defini que o relatório do cucumber será guardado na nuvem. Parta desabilitar esta opção faremos como na linha 2
-# Criando outras configurações para gravar o relatório em HTML na pasta log e também exibir os dados de execução no prompt de comando.
+# É necessário iniciar com 3 tracinhos "---". A linha "default: --publish" define que o relatório do cucumber será guardado na nuvem. Parta desabilitar esta opção faremos como na linha 2
+# Criando outras configurações para gravar o relatório em HTML na pasta log e também exibir os dados de execução no prompt de comando. Vide linha 4
+# Na linha 5, configuramos o Allure para guardar o relatório de saída na pasta LOGS
+# Nas linhas 6 e 7 definimos os locais onde foram armazenados os caminhos dos ambientes "local" e "homologação", ou seja, onde estaõ as URLs e o caminho do banco para cada ambiente. Desta forma, ao informar o comando "-p local" na linha 2 queremos dizer que o cucumber vai executar o ambiente "local". Sequisermos alterar para o ambiente de HOMOLOGAÇÃO. por exemplo, faríamos o seguinte "default: --publish-quiet -p allure -p bdd -p hml", ou seja trócaríamos "-p local" por "-p hml".
