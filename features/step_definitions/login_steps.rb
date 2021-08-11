@@ -1,4 +1,4 @@
-Dado('que acesso a página principal') do
+Dado("que acesso a página principal") do
   # A linha abaixo será substituída pela URL padrão definida no arquivo env.rb
   # visit "http://rocklov-web:3000"
 
@@ -10,17 +10,15 @@ Dado('que acesso a página principal') do
   # A instância criada abaixo será substituída pelo GANCHO ou HOOKS e criada uma variável global
   # @login_page = LoginPage.new
   @login_page.open
-
 end
-  
-Quando('submeto minhas credenciais com {string} e {string}') do |email, password|
+
+Quando("submeto minhas credenciais com {string} e {string}") do |email, password|
   # find("input[placeholder='Seu email']").set email
   # find("input[type=password").set password
   # click_button "Entrar"
 
-
   # Usando PAGE OBJECT a partir daqui. Todo o código anterior deve ser comentado.
-   # A instância criada abaixo será substituída pelo GANCHO ou HOOKS e criada uma variável global
+  # A instância criada abaixo será substituída pelo GANCHO ou HOOKS e criada uma variável global
   # login_page = LoginPage.new
 
   # login_page.campo_email.set email
@@ -31,7 +29,7 @@ Quando('submeto minhas credenciais com {string} e {string}') do |email, password
   @login_page.with(email, password)
 end
 
-Quando('submeto o seguinte formulario de login:') do |table|
+Quando("submeto o seguinte formulario de login:") do |table|
   user = table.hashes.first
 
   # Substitui os valor antes passados por string por hashes:     user[:chave]
@@ -39,8 +37,8 @@ Quando('submeto o seguinte formulario de login:') do |table|
   find("#user_password").set user[:senha]
   click_button "Entrar"
 end
-  
-Então('vejo a mensagem de alerta: {string}') do |string|
+
+Então("vejo a mensagem de alerta: {string}") do |string|
   alert = find(".alert-dark")
   expect(alert.text).to eql expected_alert
 end
