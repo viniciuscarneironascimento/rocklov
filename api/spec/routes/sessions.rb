@@ -1,4 +1,4 @@
-require_relative "base_api"
+# require_relative "base_api"
 
 # A pasta "routes" foi criada para guardar as rotas assim como fazemos com PageObject
 

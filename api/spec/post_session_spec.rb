@@ -1,5 +1,5 @@
-require "httparty"
-require_relative "routes/sessions"
+# require "httparty"
+# require_relative "routes/sessions"
 
 # O rspec puro não sabe consumir uma API, então vamos baixar outra gem "httparty"
 # O HTTParty é uma gem utilizada para realizar requisições de verbos HTTP (Post, Get, Put e Delete) de forma simples em web services.

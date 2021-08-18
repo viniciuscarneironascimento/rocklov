@@ -1,5 +1,5 @@
-require_relative "routes/signup"
-require_relative "libs/mongo"
+# require_relative "routes/signup"
+# require_relative "libs/mongo"
 
 describe "POST /signup" do
   context "novo usuario" do
