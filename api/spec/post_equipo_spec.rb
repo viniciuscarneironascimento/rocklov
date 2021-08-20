@@ -1,6 +1,6 @@
 # os require_relative abaixo serão comentados e colocados em um único arquivo, o "spec_helper.rb"
-# require_relative "routes/equipos"
-# require_relative "routes/sessions"
+require_relative "routes/equipos"
+require_relative "routes/sessions"
 
 # Monta-se toda estqa estrutura e precisa fazer o envio destas informações para a API
 describe "POST /equipos" do
@@ -12,8 +12,8 @@ describe "POST /equipos" do
 
     # Faço a chamado da classe Sessions para realizar o login que é PRÉ-CONDIÇÃO para o cadastro abaixo.
     # Este retorno vai me fornecer o "ID" do usuário onde poderia usar no HEADRS do before seguinte.
+    # result = Sessions.new.login(payload)
     result = Sessions.new.login(payload)
-
     # Desta forma o método "create" da classe "Equipos" passará a receber també o "ID" como parâmetro
     @user_id = result.parsed_response["_id"]
   end
@@ -22,9 +22,11 @@ describe "POST /equipos" do
     before(:all) do
 
       # O outro erro foi no "Form Data" que retornou "thumbnail: (binary)", sendo que passamos string conforme a documentação que não estava atualizada. A linha abaixo será implementada:
+
       thumbnail = File.open(File.join(Dir.pwd, "spec/fixture/images", "kramer.jpg"))
+
       # A linha " thumbnail: "kramer.jpg" será substituída por "thumbnail: thumbnail,"
-      puts thumbnail
+
       payload = {
         thumbnail: thumbnail,
         name: "Karmer Eddie Van Hallen",
