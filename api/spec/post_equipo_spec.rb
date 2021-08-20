@@ -1,6 +1,6 @@
 # os require_relative abaixo serão comentados e colocados em um único arquivo, o "spec_helper.rb"
-require_relative "routes/equipos"
-require_relative "routes/sessions"
+# require_relative "routes/sessions"
+# require_relative "routes/equipos"
 
 # Monta-se toda estqa estrutura e precisa fazer o envio destas informações para a API
 describe "POST /equipos" do
@@ -23,13 +23,13 @@ describe "POST /equipos" do
 
       # O outro erro foi no "Form Data" que retornou "thumbnail: (binary)", sendo que passamos string conforme a documentação que não estava atualizada. A linha abaixo será implementada:
 
-      thumbnail = File.open(File.join(Dir.pwd, "spec/fixture/images", "kramer.jpg"))
+      thumbnail = File.open(File.join(Dir.pwd, "spec/fixture/images", "baixo.jpg"))
 
       # A linha " thumbnail: "kramer.jpg" será substituída por "thumbnail: thumbnail,"
 
       payload = {
         thumbnail: thumbnail,
-        name: "Karmer Eddie Van Hallen",
+        name: "Karmer Eddie Van Hallen2",
         category: "Cordas",
         price: 299,
       }

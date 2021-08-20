@@ -1,4 +1,4 @@
-# require_relative "base_api"
+require_relative "base_api"
 
 # A pasta "routes" foi criada para guardar as rotas assim como fazemos com PageObject
 
@@ -9,8 +9,6 @@ class Sessions < BaseApi
   # base_uri "http://rocklov-api:3333"
 
   # As linhas acima serão comentadas e implementadas no novo arquivo "BASE_API.RB". A classe irá herdar desta nova classe ficando assim "class Sessions < BaseApi"
-
-
 
   # O meétodo abaixo será refatorado e receberá um objeto "payload" inteiro, ou seja, de "def login(email, pass)" para:
   #   def login(email, pass)
