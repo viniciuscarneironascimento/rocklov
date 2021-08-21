@@ -21,10 +21,10 @@ describe "POST /equipos" do
 
   context "novo equipo" do
     before(:all) do
-      
+
       # O outro erro foi no "Form Data" que retornou "thumbnail: (binary)", sendo que passamos string conforme a documentação que não estava atualizada. A linha abaixo será implementada:
 
-      thumbnail = File.open(File.join(Dir.pwd, "/spec/fixture/images/", "amp.jpg"))
+      thumbnail = File.open(File.join(Dir.pwd, "/spec/fixture/images/", "baixo2.jpg"))
 
       # thumbnail = File.open(Dir.pwd + "/spec/fixture/images/" + "baixo.jpg")
 
@@ -36,7 +36,7 @@ describe "POST /equipos" do
 
       payload = {
         thumbnail: thumbnail,
-        name: "Karmer Eddie Van Hallen3",
+        name: "Karmer Eddie Van Hallen1",
         category: "Cordas",
         price: 299,
       }
