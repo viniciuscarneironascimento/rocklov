@@ -24,8 +24,8 @@ describe "POST /equipos" do
 
       # O outro erro foi no "Form Data" que retornou "thumbnail: (binary)", sendo que passamos string conforme a documentação que não estava atualizada. A linha abaixo será implementada:
 
-      thumbnail = File.open(File.join(Dir.pwd, "/spec/fixture/images/", "baixo2.jpg"))
-
+      # thumbnail = File.open(File.join(Dir.pwd, "/spec/fixture/images/", "baixo2.jpg"))
+      thumbnail = File.open(File.join(Dir.pwd, "spec/fixtures/images", "kramer.jpg"))
       # thumbnail = File.open(Dir.pwd + "/spec/fixture/images/" + "baixo.jpg")
 
       # thumbnail = fixture_file_upload(Dir.pwd + "/spec/fixture/images/" + "baixo.jpg", "image/jpg", :binary)
@@ -36,7 +36,7 @@ describe "POST /equipos" do
 
       payload = {
         thumbnail: thumbnail,
-        name: "Karmer Eddie Van Hallen1",
+        name: "Karmer Eddie Van Hallen",
         category: "Cordas",
         price: 299,
       }
