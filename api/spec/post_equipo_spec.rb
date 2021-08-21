@@ -1,6 +1,7 @@
 # os require_relative abaixo serão comentados e colocados em um único arquivo, o "spec_helper.rb"
 # require_relative "routes/sessions"
 # require_relative "routes/equipos"
+# require "spec_helper"
 
 # Monta-se toda estqa estrutura e precisa fazer o envio destas informações para a API
 describe "POST /equipos" do
@@ -20,19 +21,27 @@ describe "POST /equipos" do
 
   context "novo equipo" do
     before(:all) do
-
+      
       # O outro erro foi no "Form Data" que retornou "thumbnail: (binary)", sendo que passamos string conforme a documentação que não estava atualizada. A linha abaixo será implementada:
 
-      thumbnail = File.open(File.join(Dir.pwd, "spec/fixture/images", "baixo.jpg"))
+      thumbnail = File.open(File.join(Dir.pwd, "/spec/fixture/images/", "amp.jpg"))
+
+      # thumbnail = File.open(Dir.pwd + "/spec/fixture/images/" + "baixo.jpg")
+
+      # thumbnail = fixture_file_upload(Dir.pwd + "/spec/fixture/images/" + "baixo.jpg", "image/jpg", :binary)
+
+      # thumbnail = Rack::Test::UploadedFile.new(Dir.pwd + "/spec/fixture/images/" + "baixo.jpg", "image/jpg", :binary)
 
       # A linha " thumbnail: "kramer.jpg" será substituída por "thumbnail: thumbnail,"
 
       payload = {
         thumbnail: thumbnail,
-        name: "Karmer Eddie Van Hallen2",
+        name: "Karmer Eddie Van Hallen3",
         category: "Cordas",
         price: 299,
       }
+      puts thumbnail.class
+      puts thumbnail
 
       # O método abaixo passou a receber um novo argumento, o "user_id" para identificar o usuário logado ao qual irei cadastrar o equipamento
       @result = Equipos.new.create(payload, @user_id)
