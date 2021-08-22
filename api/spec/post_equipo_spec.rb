@@ -24,13 +24,8 @@ describe "POST /equipos" do
 
       # O outro erro foi no "Form Data" que retornou "thumbnail: (binary)", sendo que passamos string conforme a documentação que não estava atualizada. A linha abaixo será implementada:
 
-      # thumbnail = File.open(File.join(Dir.pwd, "/spec/fixture/images/", "baixo2.jpg"))
-      thumbnail = File.open(File.join(Dir.pwd, "spec/fixtures/images", "kramer.jpg"))
-      # thumbnail = File.open(Dir.pwd + "/spec/fixture/images/" + "baixo.jpg")
-
-      # thumbnail = fixture_file_upload(Dir.pwd + "/spec/fixture/images/" + "baixo.jpg", "image/jpg", :binary)
-
-      # thumbnail = Rack::Test::UploadedFile.new(Dir.pwd + "/spec/fixture/images/" + "baixo.jpg", "image/jpg", :binary)
+      # **** basta acrecentar o argumento "rb" no final para corrrigir erro de exibição da imagem
+      thumbnail = File.open(File.join(Dir.pwd, "spec/fixtures/images", "kramer.jpg"), "rb")
 
       # A linha " thumbnail: "kramer.jpg" será substituída por "thumbnail: thumbnail,"
 
@@ -40,12 +35,16 @@ describe "POST /equipos" do
         category: "Cordas",
         price: 299,
       }
-      puts thumbnail.class
-      puts thumbnail
+      # puts thumbnail.class
+      # puts thumbnail
+
+      # Necessário ajustar a classe MongoDB
+      MongoDB.new.remove_equipo(payload[:name], @user_id)
+
 
       # O método abaixo passou a receber um novo argumento, o "user_id" para identificar o usuário logado ao qual irei cadastrar o equipamento
       @result = Equipos.new.create(payload, @user_id)
-      puts @result
+      # puts @result
     end
 
     # De acordo com a documentação da API, o código de sucesso deveria ser "200", porém ao executar o rspec no terminal, o sistema apresentou código "412". Vamos colocar um "puts @result" dentro do before para ver o que retorna. Retornou esta mensagem "{"error":"Error Data :(","stacktrace":{}}". Para identificar este erro é necessário realizar teste manual com auxílio do inspetor do Chrome

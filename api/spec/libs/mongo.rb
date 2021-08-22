@@ -47,17 +47,11 @@ class MongoDB
   end
 
   # Ajustando este método para apagar APENAS o equipamento de um determinado USUÁRIO, SENÃO IRIA APAGAR TODOS OS EQUIPAMENTOS DE OUTROS CADASTROS. Para isto será necessário criar outro método para identificar o usuário.
-  def remove_equipo(name, email)
-    # Irei chamar o método criado acima "get_user" para obter o ID do usuário, guardo em uma variável.
-    user_id = get_user(email)
+  def remove_equipo(name, user_id)
 
-    # A linha abaixo será comentada pois foi adicionada no inicilaizador da classe
-    # client = Mongo::Client.new('mongodb://rocklov-db:27017/rocklov')
-
-    # a linha abaixo acessa a tabela "equipos"
-    # equipos = client[:equipos]
-
-    @equipos.delete_many(name: name, user: user_id)
+    # No banco de dados o ID do usuário é do tipo "ObjectID", desta forma eu pego o user_id que está com o valor correto e converto para um tipo que o banco de dados aceita.
+    obj_id = BSON::ObjectId.from_string(user_id)
+    @equipos.delete_many(name: name, user: obj_id)
   end
 end
 
