@@ -41,7 +41,6 @@ describe "POST /equipos" do
       # Necessário ajustar a classe MongoDB
       MongoDB.new.remove_equipo(payload[:name], @user_id)
 
-
       # O método abaixo passou a receber um novo argumento, o "user_id" para identificar o usuário logado ao qual irei cadastrar o equipamento
       @result = Equipos.new.create(payload, @user_id)
       # puts @result
@@ -51,6 +50,27 @@ describe "POST /equipos" do
     # Ao verificar no inspetor, foram identificados que os tipos de requisição do cabeçalho "Request Headers" não é do tipo JSON, é do tipo "Content-Type: multipart/form-data;". O outro erro foi no "Form Data" que retornou "thumbnail: (binary)", sendo que passamos string.
     it "deve retornar 200" do
       expect(@result.code).to eql 200
+    end
+  end
+
+  context "nao autorizado" do
+    before(:all) do
+
+      # **** basta acrecentar o argumento "rb" no final para corrrigir erro de exibição da imagem
+      thumbnail = File.open(File.join(Dir.pwd, "spec/fixtures/images", "baixo2.jpg"), "rb")
+
+      payload = {
+        thumbnail: thumbnail,
+        name: "Contra Baixo",
+        category: "Cordas",
+        price: 59,
+      }
+      @result = Equipos.new.create(payload, nil)
+      # puts @result
+    end
+
+    it "deve retornar 401" do
+      expect(@result.code).to eql 401
     end
   end
 end
